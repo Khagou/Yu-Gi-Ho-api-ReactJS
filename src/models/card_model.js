@@ -1,5 +1,6 @@
 class Ygo{
-
+    tableRows = 0;
+    cards = [];
 }
 
 class Card {

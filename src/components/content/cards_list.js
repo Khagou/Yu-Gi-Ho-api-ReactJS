@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import CardOne from "./card_one";
-import { getAllCards, searchInCards } from "../../services/card_list_service";
+import {getAllCards, searchInCards } from "../../services/card_list_service";
 import { toModel } from "../../models/card_model";
 import '../../assets/css/cardList.css'
+import CardDesc from "./card_desc";
 
 const CardList = () => {
 
@@ -12,8 +13,8 @@ const CardList = () => {
     const [searchCard, setSearchCard] = useState('');
 
     useEffect( () => {
-        if (searchCard){
-            searchInCards(searchCard)
+        if (searchCard){    
+        searchInCards(searchCard)
             .then( json => {
                 setCardList(toModel(json).cards)
             })
@@ -53,9 +54,21 @@ const CardList = () => {
             <option value="new">new</option>
         </select>
 
-        <input type="search" placeholder="search" onChange={e => {
-            // setSearchCard(prevState => prevState = e.target.value)}} />
-            setSearchCard(e.target.value)}} />
+        <label htmlFor="search">Recherche par nom</label>
+        <input name="search" id="search" type="search" placeholder="search" onChange={e => {
+            
+                // setSearchCard(prevState => prevState = e.target.value)}} />
+                setSearchCard(e.target.value)
+            
+        }} />
+       
+        {/* <label htmlFor="searchId">Recherche par ID</label>
+        <input name="searchId" id="searchId" type="search" placeholder="search" onChange={e => {
+            
+                // setSearchCard(prevState => prevState = e.target.value)}} />
+                setSearchCardId(e.target.value)
+            
+        }} /> */}
 
     </div>
        <section>

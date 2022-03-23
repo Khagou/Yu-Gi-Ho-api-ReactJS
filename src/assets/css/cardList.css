@@ -1,10 +1,21 @@
+div.info{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
 select{
     margin: 100px  0 0 75px;
     background-color: saddlebrown;
     padding: 2px 3px;
     border: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
     font-size: 25px;
     border-radius: 5px;
+}
+input{
+    text-align: center;
+    margin-top: 100px;
+    width: 250px;
+    height: 35px;
 }

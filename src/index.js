@@ -7,16 +7,18 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Link,
 } from "react-router-dom";
+import CardDesc from './components/content/card_desc';
 
 ReactDOM.render(
   <Router>
     <Routes>
         <Route path="/">
             <Route index element={<App />} />
+            <Route path=':idCard' element={<CardDesc />} />
         </Route>
     </Routes>
-    <App />
   </Router>,
   document.getElementById('root')
 );

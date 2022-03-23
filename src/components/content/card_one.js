@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../../assets/css/cardOne.css'
 
 const CardOne = (props) => {
 
 
     return(
-        
+        <Link to={"/" + props.card.id}>
             <article id={props.card.id}>
                 <h4>{props.card.name}</h4>
                     <div className="typeRace">
@@ -15,6 +16,7 @@ const CardOne = (props) => {
                 <img src={props.card.imageSmall} alt={props.card.name} />
 
             </article>
+        </Link>
         
     )
 }
