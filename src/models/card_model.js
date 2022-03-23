@@ -16,7 +16,7 @@ class Card {
 
 function toModel (json){
     const ygo = new Ygo ();
-    ygo.tableRows = json['meta']['total_rows'];
+    ygo.tableRows = json['meta'] ? json['meta']['total_rows'] : "";
     const listCards = json['data'];
     ygo.cards = listCards.map(obj => {
         const card = new Card();
@@ -28,8 +28,8 @@ function toModel (json){
         const cardImages = obj['card_images'] ?? [];
         const cardPrices = obj['card_prices'] ?? [];
         if (cardImages.length > 0) {
-            card.imageMedium = cardImages[0]['image_url'] ?? '';
             card.imageSmall = cardImages[0]['image_url_small'] ?? '';
+            card.imageMedium = cardImages[0]['image_url'] ?? '';
         }
         if (cardPrices.length > 0){
             card.cardmarketPrice = cardPrices[0]['cardmarket_price'] ?? '';
